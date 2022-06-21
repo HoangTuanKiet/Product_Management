@@ -17,7 +17,7 @@ public class ProductController {
     private ProductRepository productRepository;
 
     @GetMapping("/get")
-    public ResponseEntity getAll(
+    public ResponseEntity<?> getAll(
             @RequestParam(value = "page") int page,
             @RequestParam(value = "page_size") int pageSize
     ){
@@ -26,21 +26,21 @@ public class ProductController {
     }
 
     @PostMapping("/create")
-    public ResponseEntity create(
+    public ResponseEntity<?> create(
             @RequestBody ProductEntity product
     ){
         return ResponseEntity.ok(productRepository.save(product));
     }
 
     @PutMapping("/update")
-    public ResponseEntity update(
+    public ResponseEntity<?> update(
             @RequestBody ProductEntity product
     ){
         return ResponseEntity.ok(productRepository.save(product));
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity delete(
+    public ResponseEntity<?> delete(
             @PathVariable("id") int id
     ){
         Optional<ProductEntity> product = productRepository.findById(id);
@@ -53,7 +53,7 @@ public class ProductController {
     }
 
     @GetMapping("search")
-    public ResponseEntity search(
+    public ResponseEntity<?> search(
             @RequestParam(value = "page") int page,
             @RequestParam(value = "page_size") int pageSize
     ){
