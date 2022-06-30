@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "category")
@@ -17,4 +18,5 @@ public class CategoryEntity {
     private String code;
     private Integer status;
     private String description;
+    private LocalDateTime modifiedAt;
 }
